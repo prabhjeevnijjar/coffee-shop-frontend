@@ -1,21 +1,21 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { baseUrl } from '@/utils/config';
-import * as API from '../../../utils/endpoints.json';
+import API from '../../../utils/endpoints.json';
 import ShopCard from './ShopCard';
 
 const ShopListing = () => {
-  const [resData, setImages] = useState([]);
+  const [resData, setData] = useState([]);
   const [page, setPage] = useState(0);
 
-  const fetchImages = async (page) => {
+  const fetchShopData = async (page) => {
     const response = await fetch(baseUrl + API.getShopsListApi + '?page=' + page || 0);
     const data = await response.json();
-    setImages((prev) => [...prev, ...data.message.results.result || []]);
+    setData((prev) => [...prev, ...data.message.results.result || []]);
   };
 
   useEffect(() => {
-    fetchImages(page);
+    fetchShopData(page);
   }, [page]);
 
   return (

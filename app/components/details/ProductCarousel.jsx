@@ -1,11 +1,12 @@
+import { Fragment } from 'react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import produtImage from '../../../public/static/images/shopMenu.jpeg';
 import Link from 'next/link';
 
-const ProductCarousel = () => {
+const ProductCarousel = ({ images }) => {
   return (
     <div className="relative">
-      <Link href='/' className="top-8 left-7 z-50 absolute w-[36px] h-[36px] flex items-center justify-center bg-white rounded-lg">
+      <Link href="/" className="top-8 left-7 z-50 absolute w-[36px] h-[36px] flex items-center justify-center bg-white rounded-lg">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -23,23 +24,25 @@ const ProductCarousel = () => {
       </Link>
       <Carousel>
         <CarouselContent>
-          <CarouselItem>
-            <div className="h-[330px] w-full">
-              <img className="object-fill" src={produtImage.src} />
-            </div>
-          </CarouselItem>
-          <CarouselItem>
-            {' '}
-            <div className="h-[330px] w-full">
-              <img className="object-fill" src={produtImage.src} />
-            </div>
-          </CarouselItem>
-          <CarouselItem>
-            {' '}
-            <div className="h-[330px] w-full">
-              <img className="object-fill" src={produtImage.src} />
-            </div>
-          </CarouselItem>
+          {images?.length ? (
+            <Fragment>
+              {images.map((item, index) => {
+                return (
+                  <CarouselItem key={index}>
+                    <div className="h-[330px] w-full">
+                      <img className="object-fill" src={item} />
+                    </div>
+                  </CarouselItem>
+                );
+              })}
+            </Fragment>
+          ) : (
+            <CarouselItem>
+              <div className="h-[330px] w-full">
+                <img className="object-fill" src={produtImage.src} />
+              </div>
+            </CarouselItem>
+          )}
         </CarouselContent>
         <CarouselPrevious className="translate-x-14 translate-y-20" />
         <CarouselNext className="-translate-x-14 translate-y-20" />

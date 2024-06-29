@@ -1,9 +1,10 @@
+import Link from 'next/link';
 import { Fragment, useEffect, useRef } from 'react';
 
 const ShopCard = (props) => {
   const { data, newLimit, isLast } = props;
   const cardRef = useRef();
-  console.log({ data });
+
   useEffect(() => {
     if (!cardRef?.current) return;
 
@@ -18,7 +19,7 @@ const ShopCard = (props) => {
   }, [isLast]);
 
   return (
-    <div className="w-[130px] sm:w-[160px] flex flex-col relative" ref={cardRef}>
+    <Link href={`/details/[slug]?slug=${encodeURIComponent(data._id)}`} className="w-[130px] sm:w-[160px] flex flex-col relative" ref={cardRef}>
       <span className="top-[-15px] right-0 absolute border-2 border-white bg-customSeaFoam rounded-full w-[36px] h-[36px] flex items-center justify-center hover:cursor-pointer">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -66,10 +67,10 @@ const ShopCard = (props) => {
             <span className="font-semibold text-[14px]">{data.starRating}</span>
           </Fragment>
         ) : null}
-        <span className="font-normal text-[14px] text-customDisabled">200 reviews</span>
       </div>
+      {data.reviewCount ? <span className="font-normal text-[14px] text-customDisabled">{+reviewCount > 999 ? '900+' : reviewCount} reviews</span> : null}
       <div className="font-semibold text-[14px]">12 km</div>
-    </div>
+    </Link>
   );
 };
 export default ShopCard;
