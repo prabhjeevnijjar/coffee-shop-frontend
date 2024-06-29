@@ -20,6 +20,7 @@ module.exports = {
         customPrimary: '#003B40',
         customDisabled: '#B7C1C2',
         customSecondary: '#B7C1C2',
+        customSeaFoam: '#EDF0EF',
         customBg: 'background: #F0EDEE',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
@@ -73,6 +74,9 @@ module.exports = {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+      },
+      dropShadow: {
+        custom: '0px 4px 6px 0px rgba(0, 59, 64, 0.18)',
       },
     },
   },
