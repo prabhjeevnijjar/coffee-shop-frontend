@@ -1,6 +1,7 @@
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import produtImage from '../../../public/static/images/shopMenu.jpeg';
 import Link from 'next/link';
+
 const ProductCarousel = () => {
   return (
     <div className="relative">
@@ -23,25 +24,25 @@ const ProductCarousel = () => {
       <Carousel>
         <CarouselContent>
           <CarouselItem>
-            <div className="h-[300px] w-full">
+            <div className="h-[330px] w-full">
               <img className="object-fill" src={produtImage.src} />
             </div>
           </CarouselItem>
           <CarouselItem>
             {' '}
-            <div className="h-[300px] w-full">
+            <div className="h-[330px] w-full">
               <img className="object-fill" src={produtImage.src} />
             </div>
           </CarouselItem>
           <CarouselItem>
             {' '}
-            <div className="h-[300px] w-full">
+            <div className="h-[330px] w-full">
               <img className="object-fill" src={produtImage.src} />
             </div>
           </CarouselItem>
         </CarouselContent>
-        <CarouselPrevious className="translate-x-14" />
-        <CarouselNext className="-translate-x-14" />
+        <CarouselPrevious className="translate-x-14 translate-y-20" />
+        <CarouselNext className="-translate-x-14 translate-y-20" />
       </Carousel>
     </div>
   );
