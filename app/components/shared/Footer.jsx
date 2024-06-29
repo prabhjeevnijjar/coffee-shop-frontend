@@ -5,7 +5,7 @@ import { useState } from 'react';
 const Footer = () => {
   const [isSelected, setIsSelected] = useState(true);
   return (
-    <div className="fixed h-[114px] z-50 w-full pb-[56px] max-w-lg -translate-x-1/2 bottom-0 left-1/2 ">
+    <div className="fixed h-[114px] bg-white pt-4 z-50 w-full pb-[52px] max-w-lg -translate-x-1/2 bottom-0 left-1/2 ">
       <div className="px-1 grid h-full max-w-lg grid-cols-4 mx-auto">
         <div className={`flex align-middle items-center justify-center  ${isSelected ? 'bg-customPrimary rounded-[27px] w-[70px]' : ''}`}>
           {isSelected ? (
