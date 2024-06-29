@@ -1,0 +1,5 @@
+{
+  "getShopsListApi": "/shops/list",
+  "searchShopsApi": "/shops/search",
+  "getShopDetailsApi": "/shops/fetch-shop"
+}
