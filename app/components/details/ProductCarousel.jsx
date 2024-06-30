@@ -30,7 +30,7 @@ const ProductCarousel = ({ images }) => {
                 return (
                   <CarouselItem key={index}>
                     <div className="h-[330px] w-full">
-                      <img className="object-fill" src={item} />
+                      <img className="object-fill" src={item} alt={"restaurant image"+index}/>
                     </div>
                   </CarouselItem>
                 );

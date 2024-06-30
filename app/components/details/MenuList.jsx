@@ -6,9 +6,7 @@ import { menuItemCategories } from '@/utils/config';
 
 const MenuList = ({ menuItems }) => {
   const [isSelected, setIsSelected] = useState('coffee');
-  console.log({ menuItems });
-  const hello = menuItems.filter((item) => item.category === isSelected);
-  console.log({ hello });
+
   return (
     <div className="mt-12">
       <div className="flex flex-row gap-12">

@@ -22,7 +22,7 @@ const MenuCard = ({ item }) => {
         <img className="h-[100%] rounded-lg" src={item?.image || ''} alt="menue item" />
       </div>
       <div className="flex flex-col">
-        <h3 className="font-bold">{item?.name}</h3>
+        <p className="font-bold">{item?.name}</p>
         <span>
           <p className="text-wrap">{item?.description}</p>
         </span>
