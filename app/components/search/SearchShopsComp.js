@@ -1,5 +1,5 @@
 'use client';
-import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
+import { Fragment, useEffect, useRef, useState } from 'react';
 import { baseUrl } from '@/utils/config';
 import Link from 'next/link';
 import API from '@/utils/endpoints.json';
@@ -27,7 +27,6 @@ const SearchShopComp = () => {
     if (checkInputHandler) setSearchTerm(event.target.value);
   };
 
-
   return (
     <Fragment>
       <input type="text" className="rounded-[20px] bg-customSeaFoam w-[70%] px-[13px] py-[16px]" placeholder="Search" onChange={onSearchChange} value={searchTerm} />
@@ -38,9 +37,9 @@ const SearchShopComp = () => {
               <Link href={`/details/[slug]?slug=${encodeURIComponent(item._id)}`}>
                 <TableRow key={index} className="w-full mt-2 hover:cursor-pointer">
                   <TableCell>
-                    <img className="w-[120px]" src={item.images[0]} />
+                    <img className="w-[120px] rounded-[20px]" src={item.images[0]} />
                   </TableCell>
-                  <TableCell className="font-medium">{item.shopName}</TableCell>
+                  <TableCell className="font-semibold text-[18px]">{item.shopName}</TableCell>
                 </TableRow>
               </Link>
             );

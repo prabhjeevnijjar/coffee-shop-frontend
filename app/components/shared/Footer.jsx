@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState } from 'react';
 
 const Footer = () => {
@@ -42,7 +43,7 @@ const Footer = () => {
             </svg>
           )}
         </div>
-        <div className={`flex align-middle items-center justify-center  ${!isSelected ? 'bg-customPrimary rounded-[27px] w-[70px]' : ''}`}>
+        <Link href="/my-likes" className={`flex align-middle items-center justify-center  ${!isSelected ? 'bg-customPrimary rounded-[27px] w-[70px]' : ''}`}>
           {!isSelected ? (
             <svg
               className="hover:cursor-pointer feather feather-heart"
@@ -74,7 +75,7 @@ const Footer = () => {
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
             </svg>
           )}
-        </div>
+        </Link>
         <div className={`flex align-middle items-center justify-center  ${!isSelected ? 'bg-customPrimary rounded-[27px] w-[70px]' : ''}`}>
           {!isSelected ? (
             <svg
