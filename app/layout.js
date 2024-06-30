@@ -1,6 +1,7 @@
 import { Raleway } from 'next/font/google';
 import './globals.css';
 import BookmarkContext from '@/context/bookmarkContext';
+import FilterContext from '@/context/filterContext';
 
 const raleway = Raleway({ style: ['normal', 'italic'], subsets: ['latin'], variable: '--font-poppins', display: 'swap', weight: ['400', '700', '600'] });
 
@@ -14,7 +15,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={raleway.className + ' bg-customBg'}>
         <div className="container mx-auto">
-          <BookmarkContext>{children}</BookmarkContext>
+          <FilterContext>
+            <BookmarkContext>{children}</BookmarkContext>
+          </FilterContext>
         </div>
       </body>
     </html>

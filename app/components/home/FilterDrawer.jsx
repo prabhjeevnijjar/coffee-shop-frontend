@@ -1,7 +1,13 @@
 'use client';
-import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from '@/components/ui/drawer';
+import { useContext } from 'react';
+import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger } from '@/components/ui/drawer';
+import { Label } from '@/components/ui/label';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { Filter_data } from '@/context/filterContext';
 
 const FilterDrawer = () => {
+  const { filters, setFilters } = useContext(Filter_data);
+  console.log({ filters });
   return (
     <Drawer>
       <DrawerTrigger className="bg-customPrimary p-5 rounded-[20px] w-[58px] h-[58px] drop-shadow-custom">
@@ -14,12 +20,18 @@ const FilterDrawer = () => {
       </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader>
-          <DrawerTitle>Are you absolutely sure?</DrawerTitle>
-          <DrawerDescription>This action cannot be undone.</DrawerDescription>
+          <DrawerTitle>Sort By</DrawerTitle>
+          <RadioGroup defaultValue="starRating" className="my-3">
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="starRating" id="starRating" checked={filters === 'starRating'} onClick={(e) => setFilters(e.target.value)} />
+              <Label htmlFor="starRating">Star Rating</Label>
+            </div>
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="reviewCount" id="reviewCount" checked={filters === 'reviewCount'} onClick={(e) => setFilters(e.target.value)} />
+              <Label htmlFor="reviewCount">Review Count</Label>
+            </div>
+          </RadioGroup>
         </DrawerHeader>
-        <DrawerFooter>
-          <DrawerClose></DrawerClose>
-        </DrawerFooter>
       </DrawerContent>
     </Drawer>
   );

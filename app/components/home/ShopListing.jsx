@@ -1,22 +1,28 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { baseUrl } from '@/utils/config';
 import API from '../../../utils/endpoints.json';
 import ShopCard from './ShopCard';
+import { Filter_data } from '@/context/filterContext';
 
 const ShopListing = () => {
   const [resData, setData] = useState([]);
   const [page, setPage] = useState(0);
+  const { filters, setFilters } = useContext(Filter_data);
 
   const fetchShopData = async (page) => {
-    const response = await fetch(baseUrl + API.getShopsListApi + '?page=' + page || 0);
+    const response = await fetch(baseUrl + API.getShopsListApi + '?page=' + page + '&sort=' + filters);
     const data = await response.json();
-    setData((prev) => [...prev, ...data.message.results.result || []]);
+    setData((prev) => [...prev, ...(data.message.results.result || [])]);
   };
 
   useEffect(() => {
     fetchShopData(page);
   }, [page]);
+
+  useEffect(() => {
+    setPage(0);
+  }, [filters]);
 
   return (
     <div>
