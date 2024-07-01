@@ -1,8 +1,11 @@
 import Footer from './components/shared/Footer';
 import profileImg from '../public/static/images/profileImage.jpeg';
 import SearchComp from './components/home/SearchComp';
-import ShopListing from './components/home/ShopListing';
+import dynamic from 'next/dynamic';
 
+const ShopListing = dynamic(() => import('./components/home/ShopListing'), {
+  ssr: false,
+});
 export default function Home() {
   return (
     <main className="mt-12 mb-[140px]">

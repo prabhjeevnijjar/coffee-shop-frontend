@@ -11,8 +11,8 @@ const detailsPage = async ({ searchParams }) => {
   return (
     <Fragment>
       <ProductCarousel images={data.message?.results?.images || []} />
-      <ShopDetailsComp shopName={data.message?.results.shopName || 'Coffee Shop'} starRating={data.message?.results.starRating} description={data.message?.results.description} />
-      <MenuList menuItems={data.message?.results.menuItems || []} />
+      <ShopDetailsComp shopName={data.message?.results?.shopName || 'Coffee Shop'} starRating={data.message?.results?.starRating} description={data.message?.results?.description} />
+      <MenuList menuItems={data.message?.results?.menuItems || []} />
     </Fragment>
   );
 };

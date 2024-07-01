@@ -1,15 +1,21 @@
 'use client';
+import { usePathname } from 'next/navigation'
+import { useRouter } from "next/navigation";
 
 import Link from 'next/link';
 import { useState } from 'react';
 
 const Footer = () => {
   const [isSelected, setIsSelected] = useState(true);
+  const router = useRouter();
+
+  const route = usePathname()
+  console.log(usePathname())
   return (
     <div className="fixed h-[114px] bg-white pt-4 z-50 w-full pb-[52px] max-w-lg -translate-x-1/2 bottom-0 left-1/2 ">
       <div className="px-1 grid h-full max-w-lg grid-cols-4 mx-auto">
-        <div className={`flex align-middle items-center justify-center  ${isSelected ? 'bg-customPrimary rounded-[27px] w-[70px]' : ''}`}>
-          {isSelected ? (
+        <Link href="/" className={`flex align-middle items-center justify-center  ${route === '/' ? 'bg-customPrimary rounded-[27px] w-[70px]' : ''}`}>
+          {route === '/'  ? (
             <svg
               className="hover:cursor-pointer feather feather-home"
               xmlns="http://www.w3.org/2000/svg"
@@ -42,9 +48,9 @@ const Footer = () => {
               <polyline points="9 22 9 12 15 12 15 22"></polyline>
             </svg>
           )}
-        </div>
-        <Link href="/my-likes" className={`flex align-middle items-center justify-center  ${!isSelected ? 'bg-customPrimary rounded-[27px] w-[70px]' : ''}`}>
-          {!isSelected ? (
+        </Link>
+        <Link href="/my-likes" className={`flex align-middle items-center justify-center  ${route === '/my-likes' ? 'bg-customPrimary rounded-[27px] w-[70px]' : ''}`}>
+          {route === '/my-likes' ? (
             <svg
               className="hover:cursor-pointer feather feather-heart"
               xmlns="http://www.w3.org/2000/svg"

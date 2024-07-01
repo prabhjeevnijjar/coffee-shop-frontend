@@ -1,6 +1,11 @@
 import { Fragment } from 'react';
-import LikesList from '../components/likes/LikesList';
+// import LikesList from '../components/likes/LikesList';
+import Footer from '../components/shared/Footer';
+import dynamic from 'next/dynamic';
 
+const LikesList = dynamic(() => import('../components/likes/LikesList'), {
+  ssr: false,
+});
 const myLikesPage = () => {
   return (
     <Fragment>
@@ -8,7 +13,8 @@ const myLikesPage = () => {
         <h1>My Favourite Coffee ☕</h1>
         <h1>Shops {':)'}</h1>
       </div>
-      <LikesList/>
+      <LikesList />
+      <Footer />
     </Fragment>
   );
 };

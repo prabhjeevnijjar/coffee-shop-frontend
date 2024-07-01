@@ -5,12 +5,14 @@ import API from '../../../utils/endpoints.json';
 import ShopCard from './ShopCard';
 import { Filter_data } from '@/context/filterContext';
 import { Shops_data } from '@/context/shopsContext';
+import useLikeHook from '@/hooks/useLikeHook';
 
 const ShopListing = () => {
-  // const [resData, setData] = useState([]);
   const [page, setPage] = useState(0);
+  const [items, handleToggleFavourite] = useLikeHook();
+
   const { filters, setFilters } = useContext(Filter_data);
-  const { shopsData, setShopsData  } = useContext(Shops_data);
+  const { shopsData, setShopsData } = useContext(Shops_data);
 
   const fetchShopData = async (page) => {
     const response = await fetch(baseUrl + API.getShopsListApi + '?page=' + page + '&sort=' + filters);
@@ -31,7 +33,9 @@ const ShopListing = () => {
       <h2 className="font-semibold text-[20px] leading=[23.48px] mt-5">Featured coffee shops</h2>
       <div className="grid grid-cols-2 gap-4 mt-6 p-auto m-auto">
         {shopsData?.map((data, index) => {
-          return <ShopCard key={index} data={data} isLast={index === shopsData.length - 1} newLimit={() => setPage(page + 1)} />;
+          if (items.length && items.find((l) => l._id === data._id)) data.isLiked = true;
+
+          return <ShopCard key={index} data={data} isLast={index === shopsData.length - 1} newLimit={() => setPage(page + 1)} handleToggleFavourite={handleToggleFavourite} />;
         })}
       </div>
     </div>
