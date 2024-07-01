@@ -34,7 +34,7 @@ const SearchShopComp = () => {
         <TableBody>
           {searchResults?.map((item, index) => {
             return (
-              <Link href={`/details/[slug]?slug=${encodeURIComponent(item._id)}`}>
+              <Link href={`/details/[slug]?slug=${encodeURIComponent(item._id)}`} key={index}>
                 <TableRow key={index} className="w-full mt-2 hover:cursor-pointer">
                   <TableCell>
                     <img className="w-[120px] rounded-[20px]" src={item.images[0]} />

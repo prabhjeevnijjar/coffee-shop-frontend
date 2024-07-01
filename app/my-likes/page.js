@@ -1,5 +1,4 @@
 import { Fragment } from 'react';
-// import LikesList from '../components/likes/LikesList';
 import Footer from '../components/shared/Footer';
 import dynamic from 'next/dynamic';
 
