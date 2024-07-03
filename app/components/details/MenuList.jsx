@@ -9,9 +9,9 @@ const MenuList = ({ menuItems }) => {
 
   return (
     <div className="mt-12">
-      <div className="flex flex-row gap-12">
+      <div className="flex flex-row gap-4">
         <div
-          className={`flex flex-col items-center gap-3 hover:cursor-pointer p-6 ${isSelected === menuItemCategories.coffee ? 'bg-customSeaFoam rounded-[20px]' : ''}`}
+          className={`flex flex-col items-center justify-center gap-1 hover:cursor-pointer p-2 ${isSelected === menuItemCategories.coffee ? 'bg-customSeaFoam rounded-[20px]' : ''}`}
           onClick={() => setIsSelected(menuItemCategories.coffee)}
         >
           <svg
@@ -35,7 +35,7 @@ const MenuList = ({ menuItems }) => {
           <span className="text-[18px] font-semibold leading-[21.23px]">Coffee</span>
         </div>
         <div
-          className={`flex flex-col items-center gap-3 hover:cursor-pointer p-6 ${isSelected === menuItemCategories.drinks ? 'bg-customSeaFoam rounded-[20px]' : ''}`}
+          className={`flex flex-col items-center justify-center gap-1 hover:cursor-pointer p-2  ${isSelected === menuItemCategories.drinks ? 'bg-customSeaFoam rounded-[20px]' : ''}`}
           onClick={() => setIsSelected(menuItemCategories.drinks)}
         >
           <svg width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -47,7 +47,7 @@ const MenuList = ({ menuItems }) => {
           <span className="text-[18px] font-semibold leading-[21.23px]"> Drinks</span>{' '}
         </div>
         <div
-          className={`flex flex-col items-center gap-3 hover:cursor-pointer p-6 ${isSelected === menuItemCategories.food ? 'bg-customSeaFoam rounded-[20px]' : ''}`}
+          className={`flex flex-col items-center justify-center gap-1 hover:cursor-pointer p-2  ${isSelected === menuItemCategories.food ? 'bg-customSeaFoam rounded-[20px]' : ''}`}
           onClick={() => setIsSelected(menuItemCategories.food)}
         >
           <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
